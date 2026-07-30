@@ -48,8 +48,8 @@ export function AiOutputPanel({
 
   return (
     <Card className="card-elevated animate-rise gap-4 rounded-2xl border-border">
-      <CardHeader className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
-        <CardTitle className="truncate text-base">{title}</CardTitle>
+      <CardHeader className="flex flex-wrap items-center justify-between gap-3">
+        <CardTitle className="shrink-0 text-base">{title}</CardTitle>
         <div className="flex flex-wrap items-center justify-end gap-2">
           <Button
             variant={editing ? "default" : "outline"}
