@@ -70,6 +70,7 @@ export const Route = createFileRoute("/api/ai")({
         }
 
         const initialRunId = getLovableAiGatewayRunId(request);
+        const debugErrors: string[] = [];
         const gateway = createLovableAiGatewayProvider(apiKey, initialRunId);
 
         const messages: ModelMessage[] = [
@@ -81,15 +82,16 @@ export const Route = createFileRoute("/api/ai")({
           const result = streamText({
             model: gateway("google/gemini-3.6-flash"),
             messages,
-            onError: ({ error }) => console.error("AI stream error", error),
-            abortSignal: undefined,
+            onError: ({ error }) => {
+              debugErrors.push(error instanceof Error ? error.stack || error.message : JSON.stringify(error));
+            },
           });
 
           try {
             const t = await result.text;
-            return new Response("TEXT:" + t, { status: 200 });
+            return new Response("TEXT:" + t + "|ERRS:" + debugErrors.join(" ~ "), { status: 200 });
           } catch (e) {
-            return new Response("STREAMERR:" + String(e), { status: 200 });
+            return new Response("STREAMERR:" + String(e) + "|ERRS:" + debugErrors.join(" ~ "), { status: 200 });
           }
         } catch (error) {
           const message = error instanceof Error ? error.message : "AI request failed";
