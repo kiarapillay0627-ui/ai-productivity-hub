@@ -120,9 +120,7 @@ function Dashboard() {
               <CardTitle className="text-base">{feature.title}</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
-              <p className="text-sm leading-relaxed text-muted-foreground">
-                {feature.description}
-              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
               <Button asChild variant="outline" className="w-full justify-between">
                 <Link to={feature.to}>
                   {feature.action} <ArrowRight className="h-4 w-4" />

@@ -81,7 +81,9 @@ function SettingsPage() {
             <Label htmlFor="defaultTone">Default email tone</Label>
             <Select
               value={settings.defaultTone}
-              onValueChange={(value) => update({ defaultTone: value as AppSettings["defaultTone"] })}
+              onValueChange={(value) =>
+                update({ defaultTone: value as AppSettings["defaultTone"] })
+              }
             >
               <SelectTrigger id="defaultTone" className="w-full">
                 <SelectValue />

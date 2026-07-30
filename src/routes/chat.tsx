@@ -1,5 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Check, Copy, MessagesSquare, Pencil, RefreshCw, SendHorizontal, Sparkle } from "lucide-react";
+import {
+  Check,
+  Copy,
+  MessagesSquare,
+  Pencil,
+  RefreshCw,
+  SendHorizontal,
+  Sparkle,
+} from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { AiDisclaimer } from "@/components/ai-disclaimer";
@@ -54,8 +62,7 @@ function WorkplaceChat() {
         feature: "chat",
         messages: history,
         extraSystem: buildStyleGuidance(settings),
-        onDelta: (text) =>
-          setMessages([...history, { role: "assistant", content: text }]),
+        onDelta: (text) => setMessages([...history, { role: "assistant", content: text }]),
       });
     } catch (error) {
       const message = error instanceof Error ? error.message : "The chat request failed";
@@ -109,8 +116,8 @@ function WorkplaceChat() {
             <div>
               <h1 className="text-xl font-bold tracking-tight">AI Workplace Chat</h1>
               <p className="mt-1.5 max-w-md text-sm text-muted-foreground">
-                Ask about planning, communication, meetings or process — answers come back clear
-                and structured.
+                Ask about planning, communication, meetings or process — answers come back clear and
+                structured.
               </p>
             </div>
             {settings.showSuggestedPrompts && (

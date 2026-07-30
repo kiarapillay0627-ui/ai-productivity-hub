@@ -30,7 +30,9 @@ export async function streamAi({
       throw new Error("Too many requests right now. Please wait a moment and try again.");
     }
     if (response.status === 402) {
-      throw new Error("AI credits have run out for this workspace. Please add credits to continue.");
+      throw new Error(
+        "AI credits have run out for this workspace. Please add credits to continue.",
+      );
     }
     throw new Error(detail || "The AI request failed. Please try again.");
   }

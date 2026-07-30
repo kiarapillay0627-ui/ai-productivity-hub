@@ -15,6 +15,7 @@ A responsive, light-theme SaaS app with a sticky sidebar and seven pages, powere
 ## AI behaviour
 
 All three AI features call Gemini via Lovable AI with the exact system prompts requested:
+
 - Email: professional workplace communication assistant producing subject, greeting, body, closing.
 - Research: summarise, identify key insights, provide practical recommendations in professional business language.
 - Chat: intelligent workplace productivity assistant giving professional, well-structured responses.

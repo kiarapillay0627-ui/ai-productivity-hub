@@ -36,7 +36,10 @@ function splitSections(text: string): Sections {
   const markers = [
     { key: "summary" as const, regex: /(^|\n)#*\s*\**\s*summary\b[^\n]*/i },
     { key: "insights" as const, regex: /(^|\n)#*\s*\**\s*key insights\b[^\n]*/i },
-    { key: "recommendations" as const, regex: /(^|\n)#*\s*\**\s*(practical )?recommendations\b[^\n]*/i },
+    {
+      key: "recommendations" as const,
+      regex: /(^|\n)#*\s*\**\s*(practical )?recommendations\b[^\n]*/i,
+    },
   ];
 
   const found = markers
