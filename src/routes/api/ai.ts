@@ -80,9 +80,12 @@ export const Route = createFileRoute("/api/ai")({
             onError: ({ error }) => console.error("AI stream error", error),
           });
 
-          return result.toTextStreamResponse({
-            headers: { "Content-Type": "text/plain; charset=utf-8" },
-          });
+          try {
+            const t = await result.text;
+            return new Response("TEXT:" + t, { status: 200 });
+          } catch (e) {
+            return new Response("STREAMERR:" + String(e), { status: 200 });
+          }
         } catch (error) {
           const message = error instanceof Error ? error.message : "AI request failed";
           const status = /rate limit|429/i.test(message)
