@@ -1,102 +1,123 @@
-# AI Productivity Hub
+# AI Workplace Productivity Assistant
 
-Build a fully functional (not a mockup) responsive SaaS web application called AI Workplace Productivity Assistant.
+## Project Overview
 
-Requirements:
+The **AI Workplace Productivity Assistant** is a modern, responsive web application developed using the **Lovable** platform. The application is designed to improve workplace productivity by leveraging Artificial Intelligence to assist users with professional communication, research, and workplace-related queries.
 
-No login/sign-up
+The application provides an intuitive SaaS-style interface where users can generate professional emails, summarise articles and topics, and interact with an AI-powered workplace assistant. It has been designed with a clean, responsive user interface suitable for both desktop and mobile devices.
 
-No database or user storage
+---
 
-Use Google Gemini AI through Lovable for all AI features
+## Features Implemented
 
-Modern SaaS UI inspired by ChatGPT, Microsoft Copilot and Gemini AI
+### Dashboard
+- Modern SaaS-style dashboard
+- Responsive design for desktop and mobile
+- Sidebar navigation
+- Quick access to all AI tools
 
-Light theme, responsive desktop/mobile, sticky sidebar, rounded cards, smooth animations and professional UI/UX
+### Smart Email Generator
+- Generate professional workplace emails using AI
+- Multiple email tones:
+  - Formal
+  - Friendly
+  - Persuasive
+- Editable AI-generated output
+- Copy, regenerate and save draft functionality
 
-Pages
+### AI Research Assistant
+- Summarise articles and workplace topics
+- Generate key insights
+- Provide recommendations
+- Editable AI-generated responses
+- Export results as PDF
 
-Dashboard
+### AI Workplace Chat
+- Interactive AI chatbot interface
+- Workplace-related question answering
+- Suggested prompts
+- Editable and regenerable responses
 
-Smart Email Generator
+### Responsible AI
+- Human oversight guidelines
+- Privacy and data protection information
+- Fairness and bias considerations
+- Transparency principles
+- Ethical AI usage guidelines
+- User responsibility disclaimer
 
-AI Research Assistant
+### Additional Features
+- Responsive user interface
+- Professional SaaS-inspired design
+- Modern card-based layout
+- Accessible navigation
+- Search functionality
+- Settings page
+- Help and Support page
 
-AI Workplace Chat
+---
 
-Responsible AI
+## Technologies and Tools Used
 
-Help & Support
+- **Lovable** – AI-powered application development platform
+- **Google Gemini AI** – AI model used for content generation and chatbot functionality (via Lovable integration)
+- Responsive Web Design
+- Markdown (Project Documentation)
+- GitHub (Version Control and Repository Hosting)
 
-Settings
+---
 
-Dashboard
-Display a welcome message and three feature cards:
+## Setup Instructions
 
-Smart Email Generator
+### Prerequisites
 
-AI Research Assistant
+- A modern web browser (Google Chrome, Microsoft Edge, Firefox, or Safari)
+- Internet connection
+- Access to the Lovable platform
 
-AI Workplace Chat
+### Installation
 
-Smart Email Generator
-Inputs: Recipient, Purpose, Tone (Formal/Friendly/Persuasive), Additional Information.
-Use Gemini with:
-"You are a professional workplace communication assistant. Generate clear, concise business emails with a subject, greeting, body and closing."
-Display editable output with Edit, Copy, Regenerate and Save Draft.
+1. Clone the repository:
 
-AI Research Assistant
-Inputs: Topic or Article.
-Use Gemini with:
-"Summarise the content, identify key insights and provide practical recommendations using professional business language."
-Display editable Summary, Key Insights and Recommendations with Edit, Copy, Regenerate and Export PDF.
+```bash
+git clone https://github.com/your-username/ai-workplace-productivity-assistant.git
+```
 
-AI Workplace Chat
-Create a ChatGPT-style interface using Gemini with:
-"You are an intelligent workplace productivity assistant providing professional, well-structured workplace responses."
-Include suggested prompts and allow Edit, Copy and Regenerate.
+2. Navigate to the project directory:
 
-Responsible AI
-Include:
+```bash
+cd ai-workplace-productivity-assistant
+```
 
-Human Oversight
+3. Install the required dependencies (if applicable):
 
-Privacy
+```bash
+npm install
+```
 
-Fairness & Bias
+4. Start the development server:
 
-Accuracy
-
-Transparency
-
-Ethical Use
-
-Security
-
-User Responsibility
-
-Display this disclaimer throughout the app:
-"AI-generated content should always be reviewed for accuracy, completeness and organisational compliance before professional use."
-
-Generate a polished, production-ready application with working navigation, forms, AI integration and responsive design.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/d0fb2f31-00d2-4dc7-a4cf-1bc89ea2ce2f).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+5. Open your browser and navigate to:
+
+```
+http://localhost:3000
+```
+
+> **Note:** This project was generated using the **Lovable** platform. Depending on your deployment method, some setup steps may vary. If the application uses Google Gemini AI, ensure the required API integration has been configured within the Lovable project.
+
+---
+
+## Author
+
+Developed as a course project using the **Lovable** AI application development platform.
+
+---
+
+## Disclaimer
+
+This application is intended for educational purposes. AI-generated content should always be reviewed for accuracy, completeness, and organisational compliance before professional use.
+````
