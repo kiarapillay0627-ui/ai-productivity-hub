@@ -65,34 +65,24 @@ export const Route = createFileRoute("/api/ai")({
           .filter(Boolean)
           .join("\n\n");
 
-        if (feature === "chat" && history[0]?.content === "PING") {
-          return new Response("PONG key=" + String(apiKey).slice(0, 6), { status: 200 });
-        }
-
         const initialRunId = getLovableAiGatewayRunId(request);
-        const debugErrors: string[] = [];
         const gateway = createLovableAiGatewayProvider(apiKey, initialRunId);
 
-        const messages: ModelMessage[] = [
-          { role: "system", content: system },
-          ...history.map((m) => ({ role: m.role, content: m.content }) as ModelMessage),
-        ];
+        const messages: ModelMessage[] = history.map(
+          (m) => ({ role: m.role, content: m.content }) as ModelMessage,
+        );
 
         try {
           const result = streamText({
             model: gateway("google/gemini-3.6-flash"),
+            instructions: system,
             messages,
-            onError: ({ error }) => {
-              debugErrors.push(error instanceof Error ? error.stack || error.message : JSON.stringify(error));
-            },
+            onError: ({ error }) => console.error("AI stream error", error),
           });
 
-          try {
-            const t = await result.text;
-            return new Response("TEXT:" + t + "|ERRS:" + debugErrors.join(" ~ "), { status: 200 });
-          } catch (e) {
-            return new Response("STREAMERR:" + String(e) + "|ERRS:" + debugErrors.join(" ~ "), { status: 200 });
-          }
+          return result.toTextStreamResponse({
+            headers: { "Content-Type": "text/plain; charset=utf-8" },
+          });
         } catch (error) {
           const message = error instanceof Error ? error.message : "AI request failed";
           const status = /rate limit|429/i.test(message)
