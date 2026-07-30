@@ -65,6 +65,10 @@ export const Route = createFileRoute("/api/ai")({
           .filter(Boolean)
           .join("\n\n");
 
+        if (feature === "chat" && history[0]?.content === "PING") {
+          return new Response("PONG key=" + String(apiKey).slice(0, 6), { status: 200 });
+        }
+
         const initialRunId = getLovableAiGatewayRunId(request);
         const gateway = createLovableAiGatewayProvider(apiKey, initialRunId);
 
@@ -78,6 +82,7 @@ export const Route = createFileRoute("/api/ai")({
             model: gateway("google/gemini-3.6-flash"),
             messages,
             onError: ({ error }) => console.error("AI stream error", error),
+            abortSignal: undefined,
           });
 
           try {
