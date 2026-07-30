@@ -23,7 +23,7 @@ export const Route = createFileRoute("/help")({
       { property: "og:description", content: DESCRIPTION },
     ],
   }),
-  component: Help;
+  component: Help,
 });
 
 const GUIDES = [
